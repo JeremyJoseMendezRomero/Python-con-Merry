@@ -1,19 +1,31 @@
-# Escriba un programa que reciba como entrada el radio de un círculo y entregue como salida su perímetro y su área:
-# Ingrese el radio: 5
-# Perimetro: 31.4
-# Área: 78.5
+# Escriba un programa que calcule el promedio de 4 notas ingresadas por el usuario:
+# 
+# Primera nota: 55
+# Segunda nota: 71
+# Tercera nota: 46
+# Cuarta nota: 87
+# El promedio es: 64.75
 
-# Pi value
-import math
+print('You need to enter four of your students notes to get the average')
 
-print('This is a function to calulate the area and perimeter of the entered radius in the next input')
 
-radius = float(input('Enter the radius to be calculated: '))
+while True:
+      try:
+           noteOne = float(input('Enter the first note: '))
+           noteTwo = float(input('Enter the second note: '))
+           noteThree = float(input('Enter the thirdth note: '))
+           noteFour = float(input('Enter the fourth note: '))
+           average = (noteOne + noteTwo + noteThree + noteFour) / 4
+           print(f' \n The average is: {average}')
 
-area = math.pi * radius ** 2
-perimeter = 2 * math.pi * radius
+           continueAsk = input( "\n    Do you want to get another average? (Y/N): " ).strip().lower()
+           if continueAsk != "y" :
+                print("    Thaks for using the program. Goodbye! \n ")
+                break
+      except :            
+            print("\n        Error: Please enter the correct data ")
+            continueAsk = input( "\n    Do you want to calculate again? (Y/N): " ).strip().lower()
 
-print(f'''
-      The area of {radius} is: {round(area,2)} cm²
-      & the perimeter is: {round(perimeter,1)} cm
-      ''')
+            if continueAsk != "y" :
+                print("    Thaks for using the program. Goodbye! \n ")
+                break
