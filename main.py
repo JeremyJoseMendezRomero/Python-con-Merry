@@ -1,31 +1,29 @@
-# Escriba un programa que calcule el promedio de 4 notas ingresadas por el usuario:
+#Escriba un programa que convierta de centímetros a pulgadas. Una pulgada es igual a 2.54 centímetros.
 # 
-# Primera nota: 55
-# Segunda nota: 71
-# Tercera nota: 46
-# Cuarta nota: 87
-# El promedio es: 64.75
+# Ingrese longitud: 45
+# 45 cm = 17.7165 in
+# 
+# Ingrese longitud: 13
+# 13 cm = 5.1181 in
 
-print('You need to enter four of your students notes to get the average')
-
+print('A program to make the convertion from centimeters to inches \n')
+formula = 2.54
 
 while True:
-      try:
-           noteOne = float(input('Enter the first note: '))
-           noteTwo = float(input('Enter the second note: '))
-           noteThree = float(input('Enter the thirdth note: '))
-           noteFour = float(input('Enter the fourth note: '))
-           average = (noteOne + noteTwo + noteThree + noteFour) / 4
-           print(f' \n The average is: {average}')
+    try:
+        cm = float(input('Please, enter the cm to be calculated: '))
+        convertedNum = cm / formula
+        print(f'{cm} Cm is to: {round(convertedNum,4)}')
+        continueAsk = input( "\n    Do you want to do another calculation? (Y/N): " ).strip().lower()
+        if continueAsk != "y" :
+            print("    Thaks for using the program. Goodbye! \n ")
+            break
+    except :            
+        print("\n        Error: Please enter the correct data ")
+        continueAsk = input( "\n    Do you want to calculate again? (Y/N): " ).strip().lower()
 
-           continueAsk = input( "\n    Do you want to get another average? (Y/N): " ).strip().lower()
-           if continueAsk != "y" :
-                print("    Thaks for using the program. Goodbye! \n ")
-                break
-      except :            
-            print("\n        Error: Please enter the correct data ")
-            continueAsk = input( "\n    Do you want to calculate again? (Y/N): " ).strip().lower()
+        if continueAsk != "y" :
+            print("    Thaks for using the program. Goodbye! \n ")
+    break
 
-            if continueAsk != "y" :
-                print("    Thaks for using the program. Goodbye! \n ")
-                break
+# Exercise 04
