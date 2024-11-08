@@ -1,20 +1,22 @@
-#Escriba un programa que convierta de centímetros a pulgadas. Una pulgada es igual a 2.54 centímetros.
+# Escriba un programa que pida al usuario un entero de tres dígitos, y entregue el número con los dígitos en orden inverso:
 # 
-# Ingrese longitud: 45
-# 45 cm = 17.7165 in
+# Ingrese numero: 345
+# 543
 # 
-# Ingrese longitud: 13
-# 13 cm = 5.1181 in
+# Ingrese numero: 241
+# 142
 
-print('A program to make the convertion from centimeters to inches \n')
-formula = 2.54
+
+
+print('A program to get the inverted number that you enter \n')
+
 
 while True:
-    try:
-        cm = float(input('Please, enter the cm to be calculated: '))
-        convertedNum = cm / formula
-        print(f'{cm} Cm is to: {round(convertedNum,4)}')
-        continueAsk = input( "\n    Do you want to do another calculation? (Y/N): " ).strip().lower()
+    try :
+        number = int(input('Enter the number you want the invert: '))
+        invertedNumber = str(number)[::-1]
+        print(f'Here is the result: {invertedNumber}')
+        continueAsk = input( "\nDo you want to do another calculation? (Y/N): " ).strip().lower()
         if continueAsk != "y" :
             print("    Thaks for using the program. Goodbye! \n ")
             break
@@ -24,6 +26,6 @@ while True:
 
         if continueAsk != "y" :
             print("    Thaks for using the program. Goodbye! \n ")
-    break
+            break
 
-# Exercise 04
+# Exercise 05
