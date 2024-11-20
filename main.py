@@ -1,46 +1,42 @@
-# Escriba un programa que pregunte al usuario la hora actual t del reloj y un número entero de horas h, que indique qué hora marcará el reloj dentro de h horas:
+# Escriba un programa que entregue la parte decimal de un número real ingresado por el usuario.
 # 
-# Hora actual: 3
-# Cantidad de horas: 5
-# En 5 horas, el reloj marcara las 8
+# Ingrese un numero: 4.5
+# 0.5
 # 
-# Hora actual: 11
-# Cantidad de horas: 43
-# En 43 horas, el reloj marcara las 6
-
-print('A program to calculate what hour will be in n time\n')
-
-hours = list(range(0, 24, 1))
+# Ingrese un numero: -1.19
+# 0.19
 
 while True:
     try :
-        actualTime = int(input('Enter the actual hour (without minutes) in 24 hours format: '))
-        skipHours = int(input('Enter the amount of time you want to skip: '))
-        if actualTime in hours:
-            indexTime = hours.index(actualTime)
-
-            # función .index() para filtrar y ubicar el elemento especificado dentro del array,
-            # se le agrega el parametro actualTime para especificar este valor y esto nos da el indice desde el cual se comenzará el recorrido.
-
-            arrayLength = len(hours)
-
-            # función len() para determinar la cantidad de elementos del parametro hours, 24 elementos en este caso
-
-            indexResult = (indexTime + skipHours) % arrayLength
-
-            # indexResult = (indexTime + skipHours) % arrayLength: este paso es clave. Aquí estamos utilizando aritmética modular para calcular cuál sería el índice final después de recorrer "skipHours" veces, de manera cíclica.
-            # indexTime + skipHours: calcula el número de pasos a partir del índice de inicio.
-            # % arrayLength: con la operación modular (%), nos aseguramos de que el índice sea "envuelto" (ruleta) dentro de los límites del array. Esto simula el comportamiento de moverse en un ciclo.
-
-            # Por ejemplo, si indexTime es 2 y n es 6:
-            # 2 + 6 = 8
-            # 8 % 24 = 0 (ya que el array tiene longitud 24), por lo que el índice resultante es 8.
-
-            skipedHours = hours[indexResult]
+        unfilteredNumber = float(input('Enter a number with it decimals: '))
         
-            print(f'in {skipHours} hours, will be: {skipedHours} hours')
-        else:
-            print("escribe en formato 24 h.")
+        # Esta es la manera minificada de la resolución del ejercicio 8
+        print(round(abs(unfilteredNumber) % 1, len(str(unfilteredNumber)[(len(str(int(abs(unfilteredNumber) // 1))) + 1):])))
+
+        # Ejemplo del caso 14.578
+        # unfilteredNumber // 1 me permíte obtener el entero que sería: 14
+        # Ya que estoy midiendo la cantidad de caracteres con la función len(), agrego un + 1 para contar el punto decimal
+        # Al tener 3 como resultado, procedo a la variable rounderTwo
+        #
+        #rounder = len(str(int(abs(unfilteredNumber) // 1))) + 1
+        #
+        # En rounderTwo, convierto unfilteredNumber a STRING para poder usar la función SLICE[]
+        # Función a la cual se le asigna el parametro [3:] ya que 3 es el valor obtenido en la variable rounder
+        #
+        #rounderTwo = len(str(unfilteredNumber)[rounder:]
+        #
+        # Luego de cortar los caracteres de inicio a fin con SLICE[rounder:] procede a entrar en el siguiente print()
+        # El cual lo convierte nuevamente a un valor numérico y en el parametro de la función round()
+        # Se le agrega el valor de rounderTwo, que contiene la cantidad exacta de decimales ingresados en el input
+        #
+        #print(round(abs(unfilteredNumber) % 1, rounderTwo)))
+        #
+        # Forma de resolverlo con la lógica de David
+        #
+        # dataOne = len(str(int(abs(unfilteredNumber)))) + 1
+        # dataTwo = len(str(unfilteredNumber)[dataOne:])
+        # print(round(abs(unfilteredNumber - int(unfilteredNumber)), dataTwo))
+
 
         continueAsk = input( "\nDo you want to do another calculation? (Y/N): " ).strip().lower()
         if continueAsk != "y" :
@@ -54,4 +50,4 @@ while True:
             print("    Thaks for using the program. Goodbye! \n ")
             break
 
-# Exercise 07
+# Exercise 08
